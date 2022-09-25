@@ -1,0 +1,37 @@
+    <rule id="80793" level="10">
+        <if_sid>80789</if_sid>
+        <match>apacheexecve-x|recon-x|susp_activity-x</match>
+        <field name="audit.command">id|pwd|cat|curl|wget|mkdir|nano|vi|touch|cd|ls|nc</field>
+        <description>Posible WebShell - Webserver utilizo: $(audit.command) $(audit.execve.a1)</descr>    <mitre>
+      <id>T1505</id>
+    </mitre>
+    </rule>
+
+    <rule id="80794" level="10">
+        <if_sid>80789</if_sid>
+        <match>systemd-x</match>
+        <field name="audit.command">reboot|poweroff|halt|shutdown</field>
+        <description>Posible WebShell - Webserver utilizo: $(audit.command) con resultado: $(audit.ex>    <mitre>
+      <id>T1505</id>
+    </mitre>
+    </rule>
+
+    <rule id="80795" level="10">
+        <if_sid>80789</if_sid>
+        <match>systemd-x</match>
+        <field name="audit.command">systemctl</field>
+        <description>Posible WebShell - Webserver utilizo $(audit.execve.a2) en el servicio $(audit.e>    <mitre>
+      <id>T1505</id>
+    </mitre>
+    </rule>
+
+    <rule id="80796" level="10">
+        <if_sid>80789</if_sid>
+        <match>apacheexecve-x|recon-x</match>
+        <field name="audit.command">sh</field>
+        <field name="audit.execve.a2">pwd|echo|wget</field>
+        <description>Posible WebShell - Webserver utilizo: $(audit.execve.a2)</description>
+    <mitre>
+      <id>T1505</id>
+    </mitre>
+    </rule>
