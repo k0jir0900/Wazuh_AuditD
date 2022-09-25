@@ -1,7 +1,9 @@
 # Wazuh_AuditD
  AuditD monitoring with Wazuh
 
-The following setup is for using AuditD with Wazuh. The base configuration of the audit rules (audit.rules) is based on the file published by Florian Roth at https://github.com/Neo23x0/auditd/blob/master/audit.rules. The file was modified to include the audit-keys needed by Wazuh for reading logs and a rule for Webshell detection was added.
+The following setup is for using AuditD with Wazuh. The base configuration of the audit rules (audit.rules) is based on the file published by Florian Roth at https://github.com/Neo23x0/auditd/blob/master/audit.rules. 
+
+The file was modified to include the audit-keys needed by Wazuh for reading logs and a rule for Webshell detection was added.
 
 ## Installation
 
